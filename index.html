@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CIH Project</title>
+<title>Proiect CIH</title>
 <style>
   /* Basic reset */
   body {
@@ -36,10 +36,10 @@
     pointer-events: none;
     transition: filter 0.5s, opacity 0.5s;
     z-index: 0;
-    filter: brightness(0) invert(0); /* default light mode */
+    filter: brightness(0) invert(0);
   }
   body.dark-mode::before {
-    filter: brightness(1) invert(1); /* light/white in dark mode */
+    filter: brightness(1) invert(1);
     opacity: 0.08;
   }
 
@@ -84,7 +84,7 @@
   /* Pages */
   .page {
     display: none;
-    padding: 100px 20px 150px; /* space for header and bottom */
+    padding: 100px 20px 150px; 
     opacity: 0;
     transition: opacity 0.5s;
     position: relative;
@@ -149,9 +149,9 @@
     border-radius: 8px;
     font-size: 14px;
     cursor: pointer;
-    display: none; /* initially hidden */
+    display: none;
     z-index: 15;
-    text-decoration: none; /* remove underline */
+    text-decoration: none;
     text-align: center;
     transition: opacity 0.3s;
   }
@@ -180,54 +180,54 @@
 </head>
 <body>
 
-<header>CIH Project</header>
+<header>Proiect CIH</header>
 
-<button id="modeToggle">Dark Mode</button>
+<button id="modeToggle">Mod Întunecat</button>
 
 <!-- Pages -->
 <div id="page1" class="page">
-  <h1>Page 1</h1>
-  <p>Welcome to the CIH Project homepage!</p>
+  <h1>Pagina 1</h1>
+  <p>Bun venit pe pagina principală a Proiectului CIH!</p>
   <div class="card">
-    <h3>Sample Card 1</h3>
-    <p>This is a sample card with some text content.</p>
-    <a href="#">Read More</a>
+    <h3>Card Exemplu 1</h3>
+    <p>Aceasta este un exemplu de card cu conținut text.</p>
+    <a href="#">Citește mai mult</a>
   </div>
 </div>
 
 <div id="page2" class="page">
-  <h1>Page 2</h1>
-  <p>Here is page 2 content.</p>
+  <h1>Pagina 2</h1>
+  <p>Aici este conținutul paginii 2.</p>
   <div class="card">
-    <img src="https://via.placeholder.com/400x200" alt="Sample Image">
-    <p>Example of an image inside a card.</p>
+    <img src="https://via.placeholder.com/400x200" alt="Imagine Exemplu">
+    <p>Exemplu de imagine într-un card.</p>
   </div>
 </div>
 
 <div id="page3" class="page">
-  <h1>Page 3</h1>
-  <p>Page 3 info goes here.</p>
+  <h1>Pagina 3</h1>
+  <p>Informații din pagina 3.</p>
   <div class="card">
-    <h3>Another Card</h3>
-    <p>Cards help separate content neatly.</p>
+    <h3>Alt Card</h3>
+    <p>Cardurile ajută la separarea conținutului în mod ordonat.</p>
   </div>
 </div>
 
 <div id="page4" class="page">
-  <h1>Page 4</h1>
-  <p>Page 4 content.</p>
+  <h1>Pagina 4</h1>
+  <p>Conținutul paginii 4.</p>
   <div class="card">
-    <h3>Links & Resources</h3>
-    <a href="#">Resource Link 1</a><br>
-    <a href="#">Resource Link 2</a>
+    <h3>Linkuri & Resurse</h3>
+    <a href="#">Link Resursă 1</a><br>
+    <a href="#">Link Resursă 2</a>
   </div>
 </div>
 
 <div id="page5" class="page">
-  <h1>Page 5</h1>
-  <p>Final page content.</p>
+  <h1>Pagina 5</h1>
+  <p>Conținut final al paginii.</p>
   <div class="card">
-    <h3>Contact Info</h3>
+    <h3>Informații Contact</h3>
     <p>Email: example@cihproject.com</p>
   </div>
 </div>
@@ -242,8 +242,8 @@
 </div>
 
 <!-- Contact Us Button -->
-<a id="contactBtn" href="mailto:scripttest386@gmail.com?subject=CIH%20Project%20Support&body=Hello,%20I%20encountered%20a%20problem..." target="_blank">
-  If you encounter any problems contact us
+<a id="contactBtn" href="mailto:scripttest386@gmail.com?subject=Suport%20Proiect%20CIH&body=Bună,%20am%20întâmpinat%20o%20problemă..." target="_blank">
+  Dacă întâmpinați probleme, contactați-ne
 </a>
 
 <script>
@@ -257,7 +257,7 @@
   // Dark/Light mode toggle
   modeButton.addEventListener('click', () => {
     body.classList.toggle('dark-mode');
-    modeButton.textContent = body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+    modeButton.textContent = body.classList.contains('dark-mode') ? 'Mod Deschis' : 'Mod Întunecat';
   });
 
   // Show page function
@@ -277,8 +277,8 @@
     // Show contact button after scrolling down 300px
     contactBtn.style.display = scrollY > 300 ? 'block' : 'none';
 
-    // Move nav buttons up if nearing bottom (simulate stop)
-    const maxNavBottom = 20; // normal distance from bottom
+    // Move nav buttons up if nearing bottom
+    const maxNavBottom = 20; 
     const footerStop = document.body.scrollHeight - window.innerHeight - 100;
     if (scrollY > footerStop) {
       nav.style.bottom = `${scrollY - footerStop + maxNavBottom}px`;
