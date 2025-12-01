@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proiect CIH</title>
+<title>ServiceSDC - Service Tehnic Moldova</title>
 <style>
-  /* Basic reset */
   body {
     margin: 0;
     padding: 0;
@@ -13,37 +12,14 @@
     background-color: #ffffff;
     color: #000000;
     transition: background-color 0.5s, color 0.5s;
+    min-height: 200vh;
     position: relative;
-    min-height: 200vh; /* Make scrollable */
   }
   body.dark-mode {
     background-color: #121212;
     color: #ffffff;
   }
 
-  /* Background Arch Linux logo */
-  body::before {
-    content: "";
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 400px;
-    height: 400px;
-    background: url('https://upload.wikimedia.org/wikipedia/commons/6/6a/Archlinux-icon-crystal-64.svg') no-repeat center center;
-    background-size: contain;
-    opacity: 0.1;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    transition: filter 0.5s, opacity 0.5s;
-    z-index: 0;
-    filter: brightness(0) invert(0);
-  }
-  body.dark-mode::before {
-    filter: brightness(1) invert(1);
-    opacity: 0.08;
-  }
-
-  /* Header */
   header {
     width: 100%;
     padding: 15px 20px;
@@ -62,11 +38,9 @@
     color: #ffffff;
   }
 
-  /* Dark/Light mode button */
-  #modeToggle {
+  #modeToggle, #langToggle {
     position: fixed;
     top: 20px;
-    right: 20px;
     padding: 10px 16px;
     font-size: 14px;
     cursor: pointer;
@@ -74,28 +48,25 @@
     border-radius: 5px;
     background-color: #555555;
     color: #ffffff;
-    transition: background-color 0.3s;
     z-index: 20;
+    transition: background-color 0.3s;
   }
-  #modeToggle:hover {
+  #modeToggle:hover, #langToggle:hover {
     background-color: #777777;
   }
+  #modeToggle { right: 20px; }
+  #langToggle { right: 150px; }
 
-  /* Pages */
   .page {
     display: none;
-    padding: 100px 20px 150px; 
+    padding: 100px 20px 150px;
     opacity: 0;
     transition: opacity 0.5s;
     position: relative;
     z-index: 1;
   }
-  .page.active {
-    display: block;
-    opacity: 1;
-  }
+  .page.active { display: block; opacity: 1; }
 
-  /* Bottom navigation */
   #nav {
     position: fixed;
     bottom: 20px;
@@ -117,27 +88,12 @@
     background-color: transparent;
     transition: all 0.3s;
   }
-  body:not(.dark-mode) #nav button {
-    color: #000000;
-    border-color: #000000;
-  }
-  body:not(.dark-mode) #nav button.active {
-    background-color: #000000;
-    color: #ffffff;
-  }
-  body.dark-mode #nav button {
-    color: #ffffff;
-    border-color: #ffffff;
-  }
-  body.dark-mode #nav button.active {
-    background-color: #ffffff;
-    color: #000000;
-  }
-  #nav button:hover {
-    opacity: 0.8;
-  }
+  body:not(.dark-mode) #nav button { color:#000;border-color:#000; }
+  body:not(.dark-mode) #nav button.active { background-color:#000;color:#fff; }
+  body.dark-mode #nav button { color:#fff;border-color:#fff; }
+  body.dark-mode #nav button.active { background-color:#fff;color:#000; }
+  #nav button:hover { opacity: 0.8; }
 
-  /* Contact Us Button */
   #contactBtn {
     position: fixed;
     right: 20px;
@@ -155,11 +111,8 @@
     text-align: center;
     transition: opacity 0.3s;
   }
-  #contactBtn:hover {
-    opacity: 0.9;
-  }
+  #contactBtn:hover { opacity: 0.9; }
 
-  /* Sample cards */
   .card {
     background-color: #e0e0e0;
     padding: 20px;
@@ -167,72 +120,34 @@
     border-radius: 10px;
     transition: background-color 0.5s, color 0.5s;
   }
-  body.dark-mode .card {
-    background-color: #2a2a2a;
-    color: #ffffff;
-  }
-  .card img {
-    max-width: 100%;
-    border-radius: 5px;
-  }
+  body.dark-mode .card { background-color: #2a2a2a; color: #fff; }
 
+  a.phone-link { color: #007BFF; text-decoration: none; }
+  a.phone-link:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
 
-<header>Proiect CIH</header>
+<header id="siteHeader">ServiceSDC</header>
 
+<button id="langToggle">Русский</button>
 <button id="modeToggle">Mod Întunecat</button>
 
-<!-- Pages -->
-<div id="page1" class="page">
-  <h1>Pagina 1</h1>
-  <p>Bun venit pe pagina principală a Proiectului CIH!</p>
-  <div class="card">
-    <h3>Card Exemplu 1</h3>
-    <p>Aceasta este un exemplu de card cu conținut text.</p>
-    <a href="#">Citește mai mult</a>
-  </div>
-</div>
+<!-- Page 1: Home -->
+<div id="page1" class="page" data-ro="<h1>Bine ați venit la Service-ul nostru din Moldova</h1><p>Oferim reparații profesionale pentru calculatoare, laptopuri și telefoane mobile. Soluții rapide și de încredere pentru toate problemele tehnice.</p><div class='card'><h3>Reparare calculatoare</h3><p>Depanare software, instalări Windows, curățare viruși și optimizare performanță.</p><p><strong>Timp estimat de reparație:</strong> 1-5 zile (în funcție de problemă)</p></div><div class='card'><h3>Reparare laptopuri</h3><p>Înlocuire ecran, baterie, upgrade memorie și reparare hardware.</p><p><strong>Timp estimat de reparație:</strong> 3-10 zile (în funcție de disponibilitatea pieselor)</p></div><div class='card'><h3>Reparare telefoane</h3><p>Înlocuire ecran, baterie, rezolvare probleme software și recuperare date.</p><p><strong>Timp estimat de reparație:</strong> 1-7 zile (în funcție de problemă)</p></div>" data-ru="<h1>Добро пожаловать в наш сервис в Молдове</h1><p>Мы предоставляем профессиональный ремонт компьютеров, ноутбуков и мобильных телефонов. Быстрое и надежное решение всех технических проблем.</p><div class='card'><h3>Ремонт компьютеров</h3><p>Устранение программных ошибок, установка Windows, очистка от вирусов и оптимизация производительности.</p><p><strong>Ориентировочное время ремонта:</strong> 1-5 дней (в зависимости от проблемы)</p></div><div class='card'><h3>Ремонт ноутбуков</h3><p>Замена экрана, батареи, апгрейд памяти и ремонт оборудования.</p><p><strong>Ориентировочное время ремонта:</strong> 3-10 дней (в зависимости от наличия запчастей)</p></div><div class='card'><h3>Ремонт телефонов</h3><p>Замена экрана, батареи, решение программных проблем и восстановление данных.</p><p><strong>Ориентировочное время ремонта:</strong> 1-7 дней (в зависимости от проблемы)</p></div>"></div>
 
-<div id="page2" class="page">
-  <h1>Pagina 2</h1>
-  <p>Aici este conținutul paginii 2.</p>
-  <div class="card">
-    <img src="https://via.placeholder.com/400x200" alt="Imagine Exemplu">
-    <p>Exemplu de imagine într-un card.</p>
-  </div>
-</div>
+<!-- Page 2: Services -->
+<div id="page2" class="page" data-ro="<h1>Serviciile Noastre</h1><div class='card'><h3>Diagnoză gratuită</h3><p>Verificăm rapid dispozitivul și oferim un diagnostic precis.</p></div><div class='card'><h3>Reparații software</h3><p>Instalare sistem de operare, recuperare date, eliminare viruși.</p></div><div class='card'><h3>Reparații hardware</h3><p>Înlocuire piese defecte pentru telefoane, laptopuri și calculatoare.</p></div>" data-ru="<h1>Наши услуги</h1><div class='card'><h3>Бесплатная диагностика</h3><p>Мы быстро проверяем устройство и предоставляем точный диагноз.</p></div><div class='card'><h3>Программный ремонт</h3><p>Установка операционной системы, восстановление данных, удаление вирусов.</p></div><div class='card'><h3>Аппаратный ремонт</h3><p>Замена неисправных деталей для телефонов, ноутбуков и компьютеров.</p></div>"></div>
 
-<div id="page3" class="page">
-  <h1>Pagina 3</h1>
-  <p>Informații din pagina 3.</p>
-  <div class="card">
-    <h3>Alt Card</h3>
-    <p>Cardurile ajută la separarea conținutului în mod ordonat.</p>
-  </div>
-</div>
+<!-- Page 3: Pricing -->
+<div id="page3" class="page" data-ro="<h1>Tarife</h1><div class='card'><p>Reparație PC: 150-500 MDL</p><p>Reparație Laptop: 200-600 MDL</p><p>Reparație Telefon: 100-400 MDL</p></div>" data-ru="<h1>Цены</h1><div class='card'><p>Ремонт ПК: 150-500 MDL</p><p>Ремонт ноутбука: 200-600 MDL</p><p>Ремонт телефона: 100-400 MDL</p></div>"></div>
 
-<div id="page4" class="page">
-  <h1>Pagina 4</h1>
-  <p>Conținutul paginii 4.</p>
-  <div class="card">
-    <h3>Linkuri & Resurse</h3>
-    <a href="#">Link Resursă 1</a><br>
-    <a href="#">Link Resursă 2</a>
-  </div>
-</div>
+<!-- Page 4: About / Location -->
+<div id="page4" class="page" data-ro="<h1>Despre Noi</h1><p><strong>Adresă:</strong> Dacia 20, Strășeni, Strășeni</p><p><strong>Zile lucrătoare:</strong> Vineri 13:00 – Duminică 19:00</p><p><strong>Telefon:</strong> <a class='phone-link' href='tel:+37361004529'>+37361004529</a> | <a class='phone-link' href='https://wa.me/37361004529' target='_blank'>WhatsApp</a></p>" data-ru="<h1>О нас</h1><p><strong>Адрес:</strong> Dacia 20, Стрэшень, Стрэшень</p><p><strong>Рабочие дни:</strong> Пятница 13:00 – Воскресенье 19:00</p><p><strong>Телефон:</strong> <a class='phone-link' href='tel:+37361004529'>+37361004529</a> | <a class='phone-link' href='https://wa.me/37361004529' target='_blank'>WhatsApp</a></p>"></div>
 
-<div id="page5" class="page">
-  <h1>Pagina 5</h1>
-  <p>Conținut final al paginii.</p>
-  <div class="card">
-    <h3>Informații Contact</h3>
-    <p>Email: example@cihproject.com</p>
-  </div>
-</div>
+<!-- Page 5: Contact -->
+<div id="page5" class="page" data-ro="<h1>Contact</h1><p>Pentru orice întrebare sau programare, ne puteți contacta prin:</p><div class='card'><p><strong>Email:</strong> <a class='phone-link' href='mailto:scripttest386@gmail.com?subject=Suport%20Proiect%20CIH&body=Bună,%20am%20întâmpinat%20o%20problemă...' target='_blank'>scripttest386@gmail.com</a></p><p><strong>Telefon/WhatsApp:</strong> <a class='phone-link' href='tel:+37361004529'>+37361004529</a> | <a class='phone-link' href='https://wa.me/37361004529' target='_blank'>WhatsApp</a></p><p><strong>Adresă:</strong> Dacia 20, Strășeni, Strășeni</p><p><strong>Zile lucrătoare:</strong> Vineri 13:00 – Duminică 19:00</p></div>" data-ru="<h1>Контакты</h1><p>По любым вопросам или записи на ремонт, свяжитесь с нами через:</p><div class='card'><p><strong>Email:</strong> <a class='phone-link' href='mailto:scripttest386@gmail.com?subject=Suport%20Proiect%20CIH&body=Здравствуйте,%20я%20стал%20перед%20проблемой...' target='_blank'>scripttest386@gmail.com</a></p><p><strong>Телефон/WhatsApp:</strong> <a class='phone-link' href='tel:+37361004529'>+37361004529</a> | <a class='phone-link' href='https://wa.me/37361004529' target='_blank'>WhatsApp</a></p><p><strong>Адрес:</strong> Dacia 20, Стрэшень, Стрэшень</p><p><strong>Рабочие дни:</strong> Пятница 13:00 – Воскресенье 19:00</p></div>"></div>
 
-<!-- Bottom Navigation -->
 <div id="nav">
   <button onclick="showPage(1)">1</button>
   <button onclick="showPage(2)">2</button>
@@ -241,52 +156,52 @@
   <button onclick="showPage(5)">5</button>
 </div>
 
-<!-- Contact Us Button -->
-<a id="contactBtn" href="mailto:scripttest386@gmail.com?subject=Suport%20Proiect%20CIH&body=Bună,%20am%20întâmpinat%20o%20problemă..." target="_blank">
-  Dacă întâmpinați probleme, contactați-ne
-</a>
+<a id="contactBtn" href="mailto:scripttest386@gmail.com?subject=Suport%20Proiect%20CIH&body=Bună,%20am%20întâmpinat%20o%20problemă..." target="_blank">Dacă întâmpinați probleme, contactați-ne</a>
 
 <script>
-  const body = document.body;
-  const modeButton = document.getElementById('modeToggle');
-  const navButtons = document.querySelectorAll('#nav button');
-  const pages = document.querySelectorAll('.page');
-  const contactBtn = document.getElementById('contactBtn');
-  const nav = document.getElementById('nav');
+const body = document.body;
+const modeButton = document.getElementById('modeToggle');
+const langButton = document.getElementById('langToggle');
+const navButtons = document.querySelectorAll('#nav button');
+const pages = document.querySelectorAll('.page');
+const contactBtn = document.getElementById('contactBtn');
+const header = document.getElementById('siteHeader');
+const nav = document.getElementById('nav');
 
-  // Dark/Light mode toggle
-  modeButton.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    modeButton.textContent = body.classList.contains('dark-mode') ? 'Mod Deschis' : 'Mod Întunecat';
+let currentLang = 'ro'; // default Romanian
+
+modeButton.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+  modeButton.textContent = body.classList.contains('dark-mode') ? (currentLang==='ro'?'Mod Deschis':'Светлый режим') : (currentLang==='ro'?'Mod Întunecat':'Темный режим');
+});
+
+langButton.addEventListener('click', () => {
+  currentLang = currentLang==='ro'?'ru':'ro';
+  langButton.textContent = currentLang==='ro'?'Русский':'Română';
+  pages.forEach(p=>{
+    p.innerHTML = p.dataset[currentLang];
   });
+  contactBtn.textContent = currentLang==='ro'?'Dacă întâmpinați probleme, contactați-ne':'Если у вас возникли проблемы, свяжитесь с нами';
+  modeButton.textContent = body.classList.contains('dark-mode') ? (currentLang==='ro'?'Mod Deschis':'Светлый режим') : (currentLang==='ro'?'Mod Întunecat':'Темный режим');
+  header.textContent = 'ServiceSDC';
+});
 
-  // Show page function
-  function showPage(num) {
-    pages.forEach((p, i) => p.classList.toggle('active', i === num - 1));
-    navButtons.forEach((btn, i) => btn.classList.toggle('active', i === num - 1));
-    localStorage.setItem('lastPage', num);
-  }
+function showPage(num) {
+  pages.forEach((p,i)=>p.classList.toggle('active', i===num-1));
+  navButtons.forEach((btn,i)=>btn.classList.toggle('active', i===num-1));
+  localStorage.setItem('lastPage', num);
+}
 
-  // Load last visited page
-  const lastPage = parseInt(localStorage.getItem('lastPage')) || 1;
-  showPage(lastPage);
+const lastPage = parseInt(localStorage.getItem('lastPage'))||1;
+showPage(lastPage);
 
-  // Scroll behavior
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    // Show contact button after scrolling down 300px
-    contactBtn.style.display = scrollY > 300 ? 'block' : 'none';
-
-    // Move nav buttons up if nearing bottom
-    const maxNavBottom = 20; 
-    const footerStop = document.body.scrollHeight - window.innerHeight - 100;
-    if (scrollY > footerStop) {
-      nav.style.bottom = `${scrollY - footerStop + maxNavBottom}px`;
-    } else {
-      nav.style.bottom = `${maxNavBottom}px`;
-    }
-  });
-
+window.addEventListener('scroll',()=>{
+  const scrollY = window.scrollY;
+  contactBtn.style.display = scrollY>300?'block':'none';
+  const maxNavBottom = 20;
+  const footerStop = document.body.scrollHeight - window.innerHeight - 100;
+  nav.style.bottom = scrollY>footerStop?`${scrollY-footerStop+maxNavBottom}px`:`${maxNavBottom}px`;
+});
 </script>
 
 </body>
