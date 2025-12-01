@@ -1,40 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>CryMeAriver</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #111;
-            color: #fff;
-            padding: 40px;
-        }
-        h1 {
-            margin-bottom: 20px;
-        }
-        a {
-            display: block;
-            margin: 8px 0;
-            color: #4ad3ff;
-            text-decoration: none;
-            font-size: 18px;
-        }
-        a:hover {
-            color: #a0f9ff;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark/Light Mode Toggle</title>
+<style>
+  /* Default light mode */
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #000000;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  /* Dark mode styles */
+  body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+
+  /* Button styling */
+  #modeToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #555555;
+    color: #ffffff;
+    transition: background-color 0.3s;
+  }
+
+  #modeToggle:hover {
+    background-color: #777777;
+  }
+</style>
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
 
-    <p>Select a page:</p>
+<h1>Welcome to My Website</h1>
+<p>Click the button to toggle dark/light mode.</p>
 
-    <a href="page1.html">Page 1</a>
-    <a href="page2.html">Page 2</a>
-    <a href="page3.html">Page 3</a>
-    <a href="page4.html">Page 4</a>
-    <a href="page5.html">Page 5</a>
+<button id="modeToggle">Dark Mode</button>
+
+<script>
+  const button = document.getElementById('modeToggle');
+  const body = document.body;
+
+  button.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+
+    if (body.classList.contains('dark-mode')) {
+      button.textContent = 'Light Mode';
+    } else {
+      button.textContent = 'Dark Mode';
+    }
+  });
+</script>
 
 </body>
 </html>
